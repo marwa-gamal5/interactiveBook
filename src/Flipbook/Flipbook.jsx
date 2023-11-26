@@ -51,8 +51,8 @@ const Turn = ({ style = {}, className = "", options = {}, children }) => {
 };
 
 const options = {
-  width: 800,
-  height: 600,
+  width: 1000,
+  height: 800,
   autoCenter: true,
   display: "double",
   acceleration: true,
@@ -68,6 +68,8 @@ const options = {
 
 const Flipbook = () => {
   return (
+    <>
+    <div className="p-5 d-flex justify-content-center align-items-center">
     <Turn options={options} className="magazine">
       <Page1 />
       <Page2 />
@@ -76,6 +78,8 @@ const Flipbook = () => {
       <Page5 />
       <Page6 />
     </Turn>
+    </div>
+    </>
   );
 };
 
