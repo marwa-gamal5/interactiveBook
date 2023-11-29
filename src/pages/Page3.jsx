@@ -2,7 +2,7 @@ import React from 'react'
 
 function Page3() {
   return (
-    <h1 style={{ backgroundColor: 'red' }}>page3</h1>
+    <h1 style={{ backgroundColor: 'dodgerblue' }}>page2</h1>
   )
 }
 
