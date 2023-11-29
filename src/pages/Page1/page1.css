@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+:root
+{
+    --main-color: #202020;
+    --sub-color: #121212;
+}
+/* body
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--main-color);
+} */
+.container 
+{
+    display: flex;
+    width: 100%;
+    max-width: 1050px;
+    gap: 10px;
+    padding: 10px;
+}
+section 
+{
+    background: var(--sub-color);
+    border-radius: 7px;
+}
+.tools-board 
+{
+    width: 210px;
+    padding: 15px 22px 0;
+}
+.tools-board .row 
+{
+    margin-bottom: 20px;
+}
+.row .title
+{
+    color: #fff;
+    font-weight: bolder;
+}
+.row .options 
+{
+    margin: 10px 0 0 5px;
+}
+.row .options .option 
+{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.option:is(:hover, .active) img
+{
+    filter:  invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%) contrast(100%);
+}
+.option :where(span, label)
+{
+    color: #fff;
+    padding-left: 10px;
+}
+.option:is(:hover, .active) :where(span, label) 
+{
+    color: #018de5;
+}
+.option #fill-color 
+{
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+}
+#fill-color:checked ~ label 
+{
+    color: #018de5;
+}
+.option #size-slider
+{
+    width: 100%;
+    height: 5px;
+    margin-top: 10px;
+}
+.colors .options 
+{
+    display: flex;
+    justify-content: space-between;
+}
+.colors .option 
+{
+    height: 20px;
+    width: 20px;
+    margin-top: 3px;
+    border-radius: 50%;
+    position: relative;
+}
+.option #color-picker 
+{
+    opacity: 0;
+    cursor: pointer;
+}
+.colors .option:nth-child(1)
+{
+    background-color: #fff; 
+    /* border: 1px solid #fff; */
+}
+.colors .option:nth-child(2)
+{
+    background-color: Orange; 
+    /* border: 1px solid orange; */
+}
+.colors .option:nth-child(3)
+{
+    background-color: Yellow; 
+    /* border: 1px solid yellow; */
+}
+.colors .option:nth-child(4)
+{
+    background-color: Green; 
+    /* border: 1px solid green; */
+}
+.colors .option:nth-child(5)
+{
+    background-color: Blue; 
+    /* border: 1px solid blue; */
+}
+.colors .option.selected::before
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 12px;
+    height: 12px;
+    background: inherit;
+    border-radius: inherit;
+    border: 2px solid #121212;
+}
+.colors .option:first-child.selected::before
+{
+    border: #f7f7f7;
+}
+.buttons button 
+{
+    width: 100%;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 11px 0;
+    margin-bottom: 13px;
+    border-radius: 7px;
+    background: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+.buttons .clear-canvas ,
+.buttons .save-img
+{
+    background: var(--sub-color);
+    backdrop-filter: blur(10px);
+    transition: .5s linear;
+    position: relative;
+}
+.buttons .clear-canvas::before,
+.buttons .save-img::before
+{
+    content: '';
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background: var(--main-color);
+    border-radius: 7px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: .6s linear;
+}
+.buttons .clear-canvas:hover::before,
+.buttons .save-img:hover::before
+{
+    width: 100%;
+    border-radius: 7px;
+}
+/* .buttons .clear-canvas:hover,
+.buttons .save-img:hover{
+    background: var(--main-color);
+    filter: blur(0px);
+} */
+.drawing-board
+{
+    flex: 1;
+}
+.drawing-board canvas 
+{
+    width: 100%;
+    height: 100%;
+}
