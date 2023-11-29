@@ -1,20 +1,9 @@
 import React from 'react'
-import image from '../assets/p.jpg'
-import Painterro from './Painterro/painterro';
-function Page2() {
 
-
-
-
+function page2() {
   return (
-    <>
-    <div>
-      
-      <img src={image} alt="image" />
-      </div>
-      
-    </>
+    <h1 style={{ backgroundColor: 'dodgerblue' }}>page2</h1>
   )
 }
 
-export default Page2
+export default page2

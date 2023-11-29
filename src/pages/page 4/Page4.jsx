@@ -14,7 +14,7 @@ function Page4() {
   return (
     <div style={{ position: 'relative', display: 'inline-block' }}>
       {/* <div  className={`${styles.imageborder} `} style={{position: 'absolute' ,width:'90%',height:'30%', border: '2px solid red',zIndex:'99999'}} onClick={handleImageClick}  ></div> */}
-      <div  className={`${styles.imageborder} `} style={{position: 'absolute' ,width:'90%', border: '2px solid red',height:'30%',zIndex:'99999'}} onClick={handleImageClick}  >
+      <div  className={`${styles.imageborder} `} style={{position: 'absolute' ,width:'90%',height:'30%',zIndex:'99999'}} onClick={handleImageClick}  >
         {circlePosition.x !== 0 && circlePosition.y !== 0 && (
           <div
             style={{
