@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css'
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
 import Flipbook from '../src/Flipbook/Flipbook'
-
+import Test from './pages/Page1/test';
 function App() {
   const [count, setCount] = useState(0)
 

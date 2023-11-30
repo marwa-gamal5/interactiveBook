@@ -117,6 +117,12 @@ const Page3 = () => {
       }
     };
 
+
+    const handleSave = () => {
+      const json = JSON.stringify(shapes);
+      console.log(shapes)
+   }
+
     canvas.addEventListener('mousedown', startDrawing);
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseup', stopDrawing);
