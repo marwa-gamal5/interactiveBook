@@ -3,6 +3,7 @@ import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
 import React, { useEffect, useState } from "react";
 
 function Page6() {
+    
   const { editor, onReady } = useFabricJSEditor();
 
   const history = [];
@@ -77,15 +78,7 @@ function Page6() {
    
     }
 
-    fabric.Image.fromURL(
-      "https://thegraphicsfairy.com/wp-content/uploads/2019/02/Anatomical-Heart-Illustration-Black-GraphicsFairy.jpg",
-      (image) => {
-        editor.canvas.setBackgroundImage(
-          image,
-          editor.canvas.renderAll.bind(editor.canvas)
-        );
-      }
-    );
+  
   };
 
   const fromSvg = () => {
@@ -141,6 +134,19 @@ function Page6() {
       : (editor.canvas.freeDrawingBrush.width = 12);
   };
 
+  const saveToLocalStorage = () => {
+    const canvasData = JSON.stringify(editor.canvas.toObject());
+    localStorage.setItem('fabricCanvas', canvasData);
+  };
+
+  const loadFromLocalStorage = () => {
+    const savedCanvasData = localStorage.getItem('fabricCanvas');
+    if (savedCanvasData) {
+      editor.canvas.loadFromJSON(savedCanvasData, () => {
+        editor.canvas.renderAll();
+      });
+    }
+  };
   useEffect(() => {
     if (!editor || !fabric) {
       return;
@@ -175,13 +181,27 @@ function Page6() {
   const removeSelectedObject = () => {
     editor.canvas.remove(editor.canvas.getActiveObject());
   };
+  const showme = () => {
+    const canvasObjects = editor.canvas.getObjects();
+    
+    // Log individual objects on the canvas
+    // canvasObjects.forEach((obj, index) => {
+    //   console.log(`Object ${index + 1}:`, JSON.stringify(obj));
+    // });
+  
+    // Log the entire canvas data
+     console.log("Canvas data:", JSON.stringify(editor.canvas.toObject()));
+  };
+
+
+  
 
   const onAddCircle = () => {
     const circleObject = editor.addCircle();
-    console.log(JSON.stringify(circleObject));
+    // console.log(JSON.stringify(circleObject));
   
     // If you want to log the entire canvas data after adding the circle
-    console.log("canvas data=",JSON.stringify(editor.canvas.toObject()));
+    // console.log("canvas data=",JSON.stringify(editor.canvas.toObject()));
   };
   const onAddRectangle = () => {
     editor.addRectangle();
@@ -195,11 +215,25 @@ function Page6() {
     console.info(svg);
   };
 
+  useEffect(() => {
+    if (!editor || !fabric) {
+      return;
+    }
+
+    // Load canvas data from local storage on component mount
+    loadFromLocalStorage();
+  }, [editor]);
 
   return (
     <div style={{ backgroundColor: 'dodgerblue' }}>
     <div className="mt-5 p-5 " >
-    
+    <button onClick={saveToLocalStorage} disabled={!cropImage}>
+        Save
+      </button>
+      <button onClick={loadFromLocalStorage} disabled={!cropImage}>
+        Load
+      </button>
+    <button onClick={showme}>JSON </button>
     <button onClick={onAddCircle}>Add circle</button>
     <button onClick={onAddRectangle} disabled={!cropImage}>
       Add Rectangle
