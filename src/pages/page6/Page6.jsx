@@ -1,7 +1,8 @@
 
 import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
 import React, { useEffect, useState } from "react";
-
+import styles from './page6.module.css';
+import fonts from '../../assets/fonts.svg';
 function Page6() {
     
   const { editor, onReady } = useFabricJSEditor();
@@ -81,42 +82,7 @@ function Page6() {
   
   };
 
-  const fromSvg = () => {
-    fabric.loadSVGFromString(
-      `<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="500" viewBox="0 0 500 500" xml:space="preserve">
-    <desc>Created with Fabric.js 5.3.0</desc>
-    <defs>
-    </defs>
-    <g transform="matrix(1 0 0 1 662.5 750)"  >
-      <image style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  xlink:href="https://thegraphicsfairy.com/wp-content/uploads/2019/02/Anatomical-Heart-Illustration-Black-GraphicsFairy.jpg" x="-662.5" y="-750" width="1325" height="1500"></image>
-    </g>
-    <g transform="matrix(1 0 0 1 120.5 120.5)"  >
-    <circle style="stroke: rgb(53,54,58); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"  cx="0" cy="0" r="20" />
-    </g>
-    <g transform="matrix(1 0 0 1 245.5 200.5)"  >
-    <line style="stroke: rgb(53,54,58); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;"  x1="-75" y1="-50" x2="75" y2="50" />
-    </g>
-    <g transform="matrix(1 0 0 1 141.4 220.03)" style=""  >
-        <text xml:space="preserve" font-family="Arial" font-size="16" font-style="normal" font-weight="normal" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(53,54,58); fill-rule: nonzero; opacity: 1; white-space: pre;" ><tspan x="-16.9" y="-5.46" >inset</tspan><tspan x="-16.9" y="15.51" >text</tspan></text>
-    </g>
-    <g transform="matrix(1 0 0 1 268.5 98.5)"  >
-    <rect style="stroke: rgb(53,54,58); stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,255,255); fill-opacity: 0; fill-rule: nonzero; opacity: 1;"  x="-20" y="-20" rx="0" ry="0" width="40" height="40" />
-    </g>
-    </svg>`,
-      (objects, options) => {
-        editor.canvas._objects.splice(0, editor.canvas._objects.length);
-        editor.canvas.backgroundImage = objects[0];
-        const newObj = objects.filter((_, index) => index !== 0);
-        newObj.forEach((object) => {
-          editor.canvas.add(object);
-        });
 
-        editor.canvas.renderAll();
-      }
-    );
-  };
 
   useEffect(() => {
     if (!editor || !fabric) {
@@ -203,6 +169,9 @@ function Page6() {
     // If you want to log the entire canvas data after adding the circle
     // console.log("canvas data=",JSON.stringify(editor.canvas.toObject()));
   };
+  const onAddLine = () => {
+    editor.addLine();
+  };
   const onAddRectangle = () => {
     editor.addRectangle();
   };
@@ -210,10 +179,7 @@ function Page6() {
     editor.addText("inset text");
   };
 
-  const exportSVG = () => {
-    const svg = editor.canvas.toSVG();
-    console.info(svg);
-  };
+
 
   useEffect(() => {
     if (!editor || !fabric) {
@@ -226,40 +192,44 @@ function Page6() {
 
   return (
     <div style={{ backgroundColor: 'dodgerblue' }}>
-    <div className="mt-5 p-5 " >
-    <button onClick={saveToLocalStorage} disabled={!cropImage}>
-        Save
-      </button>
-      <button onClick={loadFromLocalStorage} disabled={!cropImage}>
+    <div className={`${styles.content} `} >
+    <button onClick={showme} className='mb-3'>JSON </button>
+      <div className={`${styles.AnnotationTool}    d-flex justify-content-around align-items-center  `}>
+  
+ 
+      {/* <button onClick={loadFromLocalStorage} disabled={!cropImage}>
         Load
+      </button> */}
+  
+  <button  className={`${styles.button1} `}   onClick={onAddLine}><i className={`${styles.iconstyly} fa-solid fa-minus  `} style={{ color: '#dbdbdb' }}></i></button>
+    <button  className={`${styles.button1} `}   onClick={onAddCircle}><i className={`${styles.iconstyly} fa-regular fa-circle `} style={{ color: '#dbdbdb' }}></i></button>
+   
+
+  
+    <button  className={`${styles.button1} `}   onClick={onAddRectangle} disabled={!cropImage} ><i className={`${styles.iconstyly} fa-regular fa-square `} style={{ color: '#dbdbdb' }}></i></button>
+  
+    <button className={`${styles.button1} `}   onClick={addText} disabled={!cropImage}>
+    
+    <i className={`${styles.iconstyly} bi bi-fonts`} style={{ color: '#dbdbdb', fontSize: '44px' }}></i>
+
+    
+    </button>
+    <button  className={`${styles.button1} `}   onClick={toggleDraw} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }}  className={`${styles.iconstyly} fa-solid fa-pen `}></i></button>
+
+    <button  className={`${styles.button1} `}   onClick={clear} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-trash `}></i></button>
+ 
+    
+    <button  className={`${styles.button1} `}   onClick={undo} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-rotate-left `}></i></button>
+    <button  className={`${styles.button1} `}   onClick={redo} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-rotate-right `}></i></button>
+ 
+    <button  className={`${styles.button1} `}   onClick={toggleSize} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-paintbrush `}></i></button>
+    <button  className={`${styles.button1} `}   onClick={removeSelectedObject} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-eraser `}></i></button>
+  
+       {/* Save button */}
+     <button className={`${styles.button1} `}  onClick={saveToLocalStorage} disabled={!cropImage}>
+    <i className={`${styles.iconstyly}  fa-regular fa-floppy-disk ` } style={{ color: '#dbdbdb' }} ></i>
       </button>
-    <button onClick={showme}>JSON </button>
-    <button onClick={onAddCircle}>Add circle</button>
-    <button onClick={onAddRectangle} disabled={!cropImage}>
-      Add Rectangle
-    </button>
-    <button onClick={addText} disabled={!cropImage}>
-      Add Text
-    </button>
-    <button onClick={toggleDraw} disabled={!cropImage}>
-      Toggle draw
-    </button>
-    <button onClick={clear} disabled={!cropImage}>
-      Clear
-    </button>
-    <button onClick={undo} disabled={!cropImage}>
-      Undo
-    </button>
-    <button onClick={redo} disabled={!cropImage}>
-      Redo
-    </button>
-    <button onClick={toggleSize} disabled={!cropImage}>
-      ToggleSize
-    </button>
-    <button onClick={removeSelectedObject} disabled={!cropImage}>
-      Delete
-    </button>
-    <button onClick={(e) => setCropImage(!cropImage)}>Crop</button>
+    
     <label disabled={!cropImage}>
       <input
         disabled={!cropImage}
@@ -268,13 +238,10 @@ function Page6() {
         onChange={(e) => setColor(e.target.value)}
       />
     </label>
-    <button onClick={exportSVG} disabled={!cropImage}>
-      {" "}
-      ToSVG
-    </button>
-    <button onClick={fromSvg} disabled={!cropImage}>
-      fromsvg
-    </button>
+ 
+ 
+   
+    </div>
 
     <div
       style={{

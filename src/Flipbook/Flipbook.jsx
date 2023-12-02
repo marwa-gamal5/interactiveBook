@@ -6,7 +6,7 @@ import Page2 from "../pages/Page2";
 import Page3 from "../pages/Page3";
 import Page4 from "../pages/page 4/Page4";
 import Page5 from "../page5/Page5";
-import Page6 from "../pages/Page6";
+import Page6 from "../pages//page6/Page6";
 import "turn.js";
 
 
