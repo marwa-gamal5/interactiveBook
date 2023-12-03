@@ -2,7 +2,7 @@
 import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
 import React, { useEffect, useState } from "react";
 import styles from './page6.module.css';
-import fonts from '../../assets/fonts.svg';
+
 function Page6() {
     
   const { editor, onReady } = useFabricJSEditor();
@@ -94,10 +94,32 @@ function Page6() {
     editor.canvas.renderAll();
   }, [editor?.canvas.backgroundImage]);
 
-  const toggleSize = () => {
-    editor.canvas.freeDrawingBrush.width === 12
-      ? (editor.canvas.freeDrawingBrush.width = 5)
-      : (editor.canvas.freeDrawingBrush.width = 12);
+  
+  
+  const [flag1, setflag1] = useState(false);
+  const [flag2, setFlag2] = useState(false);
+  // var flag1=false;
+  // var flag2=false;
+
+  const Draw2 = () => {
+    setFlag2(false);
+  //  flag1=!flag1;
+  setflag1(!flag1);
+    editor.canvas.isDrawingMode = !flag1;
+    editor.canvas.freeDrawingBrush.width = 12;
+   
+    console.log("fllag1",flag1)
+    console.log("fllag2",flag2)
+    console.log("Draw2", editor.canvas.isDrawingMode );
+  };
+   const Draw = () => {
+    setflag1(false);
+    setFlag2(!flag2);
+    editor.canvas.isDrawingMode = !flag2;
+    editor.canvas.freeDrawingBrush.width = 2;
+    console.log("fllag1",flag1)
+    console.log("fllag2",flag2)
+      console.log("Draw", editor.canvas.isDrawingMode );
   };
 
   const saveToLocalStorage = () => {
@@ -121,9 +143,7 @@ function Page6() {
     editor.setStrokeColor(color);
   }, [color]);
 
-  const toggleDraw = () => {
-    editor.canvas.isDrawingMode = !editor.canvas.isDrawingMode;
-  };
+ 
   const undo = () => {
     if (editor.canvas._objects.length > 0) {
       
@@ -214,15 +234,18 @@ function Page6() {
 
     
     </button>
-    <button  className={`${styles.button1} `}   onClick={toggleDraw} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }}  className={`${styles.iconstyly} fa-solid fa-pen `}></i></button>
-
-    <button  className={`${styles.button1} `}   onClick={clear} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-trash `}></i></button>
+    <button className={`${styles.button1} `} onClick={Draw} disabled={!cropImage}>
+  <i style={{ color: flag2 ? 'blue' : '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-pen`}></i>
+</button>
+    <button  className={`${styles.button1} `}   onClick={Draw2} disabled={!cropImage} ><i style={{ color: flag1 ? 'blue' : '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-paintbrush `}></i></button>
+    
  
     
     <button  className={`${styles.button1} `}   onClick={undo} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-rotate-left `}></i></button>
     <button  className={`${styles.button1} `}   onClick={redo} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-rotate-right `}></i></button>
  
-    <button  className={`${styles.button1} `}   onClick={toggleSize} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-paintbrush `}></i></button>
+   
+    <button  className={`${styles.button1} `}   onClick={clear} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-trash `}></i></button>
     <button  className={`${styles.button1} `}   onClick={removeSelectedObject} disabled={!cropImage} ><i style={{ color: '#dbdbdb' }} className={`${styles.iconstyly} fa-solid fa-eraser `}></i></button>
   
        {/* Save button */}
