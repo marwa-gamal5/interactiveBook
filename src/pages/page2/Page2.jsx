@@ -383,7 +383,7 @@ style={{ color: isAddLineClicked ? '#f9b331' : '#dbdbdb' }}
 <OverlayTrigger overlay={textTooltip}>
 <button className={`${styles.button1} `}   onClick={addText}  style={{ color: isAddTextClicked ? '#f9b331' : '#dbdbdb' }}  >
 
-<i className={`${styles.iconstyly} bi bi-fonts`} style={{fontSize: '44px' }}></i>
+<i className={`${styles.iconstyly} bi bi-fonts`} style={{fontSize: '30px' }}></i>
 
 </button>
 </OverlayTrigger>
