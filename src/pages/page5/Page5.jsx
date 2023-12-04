@@ -1,10 +1,10 @@
 import { FabricJSCanvas, useFabricJSEditor } from 'fabricjs-react';
 import React, { useEffect, useState } from "react";
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
-import image from '../../assets/Book MathSemster/4.jpg';
-import styles from './page4.module.css';
+import image from '../../assets/Book MathSemster/5.jpg';
+import styles from './page5.module.css';
 
-function Page4() {
+function Page5() {
   const { editor, onReady } = useFabricJSEditor();
   const lineTooltip  = <Tooltip id="tooltip-add-line">Line</Tooltip>;
   const circleTooltip = <Tooltip id="tooltip-add-circle">Circle</Tooltip>;
@@ -342,45 +342,45 @@ function Page4() {
   }, [editor]);
   return (
     <>
-      <div >
-        <div className="d-flex flex-row h-100 w-100 p-0 justify-content-start" style={{ backgroundColor: '#A6A6A6B2' }}>
-          <div style={{ width: '100%' }}>
-            
-            <div className='mb-auto' style={{ width: '100%', height: '50px', backgroundColor: 'red',marginTop:'750px', zIndex: '99888' , position: 'absolute' }}>
-            <div className={`${styles.AnnotationTool} d-flex justify-content-around align-items-center px-5  `}>
+    <div >
+      <div className="d-flex flex-row h-100 w-100 p-0 justify-content-start" style={{ backgroundColor: '#A6A6A6B2' }}>
+        <div style={{ width: '100%' }}>
+          
+          <div className='mb-auto' style={{ width: '100%', height: '50px', backgroundColor: 'red',marginTop:'750px', zIndex: '99888' , position: 'absolute' }}>
+          <div className={`${styles.AnnotationTool} d-flex justify-content-around align-items-center px-5  `}>
 
 <OverlayTrigger overlay={lineTooltip }>
 <button
-  className={`${styles.button1}`}
-  onClick={onAddLine}
-  style={{ color: isAddLineClicked ? '#f9b331' : '#dbdbdb' }}
+className={`${styles.button1}`}
+onClick={onAddLine}
+style={{ color: isAddLineClicked ? '#f9b331' : '#dbdbdb' }}
 >
-  <i className={`${styles.iconstyly} fa-solid fa-minus`} />
+<i className={`${styles.iconstyly} fa-solid fa-minus`} />
 </button>
 </OverlayTrigger>
 <OverlayTrigger overlay={circleTooltip}>
-  <button
-   
-    className={`${styles.button1} `}
-    onClick={onAddCircle}
-    style={{ color: isAddCircleClicked ? '#f9b331' : '#dbdbdb' }}
-  >
-    <i className={`${styles.iconstyly} fa-regular fa-circle`} />
-  </button>
+<button
+ 
+  className={`${styles.button1} `}
+  onClick={onAddCircle}
+  style={{ color: isAddCircleClicked ? '#f9b331' : '#dbdbdb' }}
+>
+  <i className={`${styles.iconstyly} fa-regular fa-circle`} />
+</button>
 
-  </OverlayTrigger>
-  <OverlayTrigger overlay={rectangleTooltip}>
-  <button
-  
-    className={`${styles.button1} `}
-    onClick={onAddRectangle}
-    disabled={!cropImage}
-    style={{ color: isAddRectangleClicked ? '#f9b331' : '#dbdbdb' }}
-  >
-    <i className={`${styles.iconstyly} fa-regular fa-square`} />
-  </button>
-  </OverlayTrigger>
-  <OverlayTrigger overlay={textTooltip}>
+</OverlayTrigger>
+<OverlayTrigger overlay={rectangleTooltip}>
+<button
+
+  className={`${styles.button1} `}
+  onClick={onAddRectangle}
+  disabled={!cropImage}
+  style={{ color: isAddRectangleClicked ? '#f9b331' : '#dbdbdb' }}
+>
+  <i className={`${styles.iconstyly} fa-regular fa-square`} />
+</button>
+</OverlayTrigger>
+<OverlayTrigger overlay={textTooltip}>
 <button className={`${styles.button1} `}   onClick={addText}  style={{ color: isAddTextClicked ? '#f9b331' : '#dbdbdb' }}  >
 
 <i className={`${styles.iconstyly} bi bi-fonts`} style={{fontSize: '44px' }}></i>
@@ -410,34 +410,34 @@ function Page4() {
 <button   className={`${styles.button1} `}   onClick={clear} style={{ color: isclearClicked ? '#f9b331' : '#dbdbdb' }}  ><i  className={`${styles.iconstyly} fa-solid fa-trash `}></i></button>
 </OverlayTrigger>
 
- {/* Save button */}
- <OverlayTrigger overlay={Save }>
+{/* Save button */}
+<OverlayTrigger overlay={Save }>
 <button   className={`${styles.button1} `}  onClick={saveToLocalStorage} >
 <i className={`${styles.iconstyly}  fa-regular fa-floppy-disk ` } style={{ color: '#dbdbdb' }} ></i>
 </button>
 </OverlayTrigger>
 <label disabled={!cropImage}>
 <input
-  disabled={!cropImage}
-  type="color"
-  value={color}
-  onChange={(e) => setColor(e.target.value)}
+disabled={!cropImage}
+type="color"
+value={color}
+onChange={(e) => setColor(e.target.value)}
 />
 </label>
 
 
 
 </div>
-            </div>
-
-            <img src={image} alt="page4" style={{ position: 'absolute' }} className={`p-0 m-0 `} />
-            <FabricJSCanvas className="sample-canvas p-0 m-0 " style={{ position: 'relative', top: '0', left: '0', zIndex: '7777'}}
-              onReady={onReady} />
           </div>
+
+          <img src={image} alt="page4" style={{ position: 'absolute' }} className={`p-0 m-0 `} />
+          <FabricJSCanvas className="sample-canvas p-0 m-0 " style={{ position: 'relative', top: '0', left: '0', zIndex: '7777'}}
+            onReady={onReady} />
         </div>
       </div>
-    </>
-  );
+    </div>
+  </>
+  )
 }
 
-export default Page4;
+export default Page5;

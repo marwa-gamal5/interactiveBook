@@ -2,10 +2,10 @@
 import React, { useState, useEffect } from "react";
 import $ from "jquery";
 import Page1 from "../pages/Page1/Page1";
-import Page2 from "../pages/Page2";
-import Page3 from "../pages/Page3";
+import Page2 from "../pages/page2/Page2";
+import Page3 from "../pages/page3/Page3";
 import Page4 from "../pages/page 4/Page4";
-import Page5 from "../page5/Page5";
+import Page5 from "../pages/page5/Page5";
 import Page6 from "../pages//page6/Page6";
 import "turn.js";
 
@@ -71,8 +71,8 @@ const Flipbook = () => {
     <div className="p-5 d-flex justify-content-center align-items-center">
     <Turn options={options} className="magazine">
       <Page1 />
-      <Page3 />
       <Page2 />
+      <Page3 />
       <Page4 />
       <Page5 />
       <Page6 />
