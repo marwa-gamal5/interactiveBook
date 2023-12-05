@@ -1,30 +1,31 @@
 .content{
-    margin-top: 20%;
+  margin-top: 20%;
 }
 .AnnotationTool{
-    background-color: rgba(166, 166, 166, 0.7)
+  background-color: rgba(166, 166, 166, 0.7);
+  padding-left: 18%;
+  padding-right: 15%;
 }
 .button1{
-    border: none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
 .iconstyly{
-    font-size: 30px;
+  font-size: 18px;
 }
 .blueicon {
-    color: blue;
-  }
-  /* Add custom styles to the tooltip */
+  color: blue;
+}
+/* Add custom styles to the tooltip */
 .tooltip {
-    background-color: #333; /* Set the background color */
-    color: #fff; /* Set the text color */
-    border-radius: 4px; /* Set the border radius */
-    padding: 8px; /* Set the padding */
-    font-size: 14px; /* Set the font size */
-  }
-  
-  /* Optional: Style the tooltip arrow */
-  .tooltip.arrow::before {
-    border-bottom-color: #333; /* Match the background color */
-  }
-  
+  background-color: #333; /* Set the background color */
+  color: #fff; /* Set the text color */
+  border-radius: 4px; /* Set the border radius */
+  padding: 8px; /* Set the padding */
+  font-size: 14px; /* Set the font size */
+}
+
+/* Optional: Style the tooltip arrow */
+.tooltip.arrow::before {
+  border-bottom-color: #333; /* Match the background color */
+}

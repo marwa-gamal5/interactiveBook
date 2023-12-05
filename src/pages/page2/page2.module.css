@@ -2,14 +2,16 @@
     margin-top: 20%;
 }
 .AnnotationTool{
-    background-color: rgba(166, 166, 166, 0.7)
+    background-color: rgba(166, 166, 166, 0.7);
+    padding-left: 18%;
+    padding-right: 15%;
 }
 .button1{
     border: none;
     background-color: transparent;
 }
 .iconstyly{
-    font-size: 20px;
+    font-size: 18px;
 }
 .blueicon {
     color: blue;
@@ -27,4 +29,6 @@
   .tooltip.arrow::before {
     border-bottom-color: #333; /* Match the background color */
   }
-  
+  .button1:hover .iconstyly {
+    color: #f9b331;
+}
