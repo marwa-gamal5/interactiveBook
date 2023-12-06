@@ -342,12 +342,12 @@ function Page11() {
   }, [editor]);
   return (
     <>
-    <div  >
+    <div >
       <div className="d-flex flex-row h-100 w-100 p-0 justify-content-start" style={{ backgroundColor: '#A6A6A6B2' }}>
         <div style={{ width: '100%' }}>
           
         {/* marginTop:'775px' */}
-          <div className={`${styles.AnnotationTool} d-flex justify-content-around align-items-center `} style={{ width: '100%', height: '25px', backgroundColor: 'rgba(7, 71, 115, 0.7)' ,marginTop:'675px', zIndex: '99888' , position: 'absolute' }}>
+          <div className={`${styles.AnnotationTool} d-flex justify-content-around align-items-center `} style={{ width: '100%', height: '25px', backgroundColor: 'rgba(7, 71, 115, 0.7)' ,marginTop:'775px', zIndex: '99888' , position: 'absolute' ,direction: "ltr" }}>
 
 <OverlayTrigger overlay={lineTooltip }>
 <button

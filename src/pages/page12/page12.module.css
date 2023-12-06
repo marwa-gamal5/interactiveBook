@@ -3,7 +3,7 @@
 }
 .AnnotationTool{
   background-color: rgba(166, 166, 166, 0.7);
-  padding-left: 18%;
+  padding-left: 22%;
   padding-right: 15%;
 }
 .button1{
@@ -30,5 +30,5 @@
   border-bottom-color: #333; /* Match the background color */
 }
 .button1:hover .iconstyly {
-  color: #f9b331;
+  color: #f9b331 !important;
 }

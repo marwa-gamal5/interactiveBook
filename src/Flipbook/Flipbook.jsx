@@ -15,6 +15,7 @@ import Page10 from "../pages/page10/Page10";
 import Page11 from "../pages/page11/Page11";
 import Page12 from "../pages//page12/Page12";
 
+
 import Page13 from "../pages/Page13/Page13";
 import Page14 from "../pages/page14/Page14";
 import Page15 from "../pages/page15/Page15";
@@ -40,6 +41,7 @@ import Page31 from "../pages//page31/Page31";
 import Page32 from "../pages//page32/Page32";
 import Page33 from "../pages//page33/Page33";
 import Page34 from "../pages//page34/Page34";
+import Page35 from "../pages//page35/Page35";
 
 import styles from './Flipbook.module.css';
 import "turn.js";
@@ -94,7 +96,8 @@ const options = {
   elevation: 50,
 
   gradients: !$.isTouch,
-  // direction: "rtl", // Set the direction to right-to-left
+  //  direction: "ltr",
+ direction: "rtl", // Set the direction to right-to-left
   when: {
     turned: function (e, page) {
       console.log("Current view: ", $(this).turn("view"));
@@ -108,15 +111,16 @@ const Flipbook = () => {
     <>
     <div className={`${styles.conteint}  p-5 d-flex justify-content-center align-items-center`}    >
     <Turn options={options} className="magazine "  >
-      <Page1 />
-      <Page2 />
+    
+     <Page1 />
+          
+     <Page2 />
       <Page3 />
       <Page4 />
       <Page5 />
       <Page6 />
-
       <Page7 />
-      <Page8 />
+      {/* <Page8/> */}
       <Page9 />
       <Page10 />
       <Page11/>
@@ -141,8 +145,9 @@ const Flipbook = () => {
       <Page30 />
       <Page31 />
       <Page32 />
-      <Page33 />
+    
       <Page34 />
+     
       
     </Turn>
     </div>

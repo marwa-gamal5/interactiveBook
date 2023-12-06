@@ -342,12 +342,12 @@ function Page13() {
   }, [editor]);
   return (
     <>
-    <div   >
-      <div className="d-flex flex-row h-100 w-100 p-0 justify-content-start" style={{ backgroundColor: '#A6A6A6B2' }}>
+     <div style={{ direction: "ltr" }}>
+      <div className="d-flex flex-row h-100 w-100 p-0 justify-content-start" style={{ backgroundColor: '#A6A6A6B2' , direction: "ltr"  }} >
         <div style={{ width: '100%' }}>
           
         {/* marginTop:'775px' */}
-          <div className={`${styles.AnnotationTool} d-flex justify-content-around align-items-center `} style={{ width: '100%', height: '25px', backgroundColor: 'rgba(7, 71, 115, 0.7)' ,marginTop:'675px', zIndex: '99888' , position: 'absolute' }}>
+          <div className={`${styles.AnnotationTool} d-flex justify-content-around align-items-center `} style={{ width: '100%', height: '25px', backgroundColor: 'rgba(7, 71, 115, 0.7)' ,marginTop:'775px', zIndex: '99888' , position: 'absolute' }}>
 
 <OverlayTrigger overlay={lineTooltip }>
 <button
@@ -433,8 +433,8 @@ onChange={(e) => setColor(e.target.value)}
 
 
 
-          <img src={image} alt="page13" style={{ position: 'absolute' }} className={`p-0 m-0  w-100`} />
-          <FabricJSCanvas className="sample-canvas p-0 m-0 " style={{ position: 'relative', top: '0', left: '0', zIndex: '7777'}}
+          <img src={image} alt="page13" style={{ position: 'absolute', direction: "ltr"  }} className={`p-0 m-0  w-100`} />
+          <FabricJSCanvas className="sample-canvas p-0 m-0 " style={{  direction: "ltr" ,position: 'relative', top: '0', left: '0', zIndex: '7777'}}
             onReady={onReady} />
         </div>
       </div>

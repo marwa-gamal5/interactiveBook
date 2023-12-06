@@ -29,3 +29,6 @@
 .tooltip.arrow::before {
   border-bottom-color: #333; /* Match the background color */
 }
+.button1:hover .iconstyly {
+  color: #f9b331 !important;
+}

@@ -5,8 +5,9 @@ import image from '../../assets/Book/1.jpg';
 function page1() {
   return (
     <>
-    <img src={image} alt="page1"  />
-
+ <div style={{ direction: "ltr" }}>
+  <img src={image} alt="page1" />
+</div>
     </>
   )
 }export default page1
