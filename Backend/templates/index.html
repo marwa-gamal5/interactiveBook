@@ -1,0 +1,28 @@
+{#{% load vite %}#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Other elements-->
+    <!--Vite dev client for hmr (will not be displayed on production)-->
+    {#        {% vite %}#}
+    {#        {% vite 'home/css/styles.css' 'home/js/main.js' %}#}
+    <script type="module">
+        //import RefreshRuntime from 'http://localhost:5173/@react-refresh'
+        import RefreshRuntime from 'http://192.168.11.31:5173/@react-refresh'
+        RefreshRuntime.injectIntoGlobalHook(window)
+        window.$RefreshReg$ = () => {}
+
+        window.$RefreshSig$ = () => (type) => type
+        window.__vite_plugin_react_preamble_installed__ = true
+    </script>
+    {% comment %} <script type="module" src="http://localhost:5173/@vite/client"></script> {% endcomment %}
+    {% comment %} <script type="module" src="http://localhost:5173/src/main.jsx"></script> {% endcomment %}
+    <script type="module" src="http://192.168.11.31:5173/@vite/client"></script>
+    <script type="module" src="http://192.168.11.31:5173/src/main.jsx"></script>
+</head>
+<body>
+<div id="root"></div>
+<!--Page content-->
+</body>
+
+</html>
