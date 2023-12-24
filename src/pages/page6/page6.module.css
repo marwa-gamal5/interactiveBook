@@ -27,7 +27,4 @@
   .tooltip.arrow::before {
     border-bottom-color: #333; /* Match the background color */
   }
-  .samplecanvas{
-    border: 2px solid #000 !important;
-
-  }
+  

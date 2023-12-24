@@ -21,10 +21,30 @@ import Page14 from "../pages/page14/Page14";
 import Page15 from "../pages/page15/Page15";
 import Page16 from "../pages/page16/Page16";
 import Page17 from "../pages/page17/Page17";
+import Page18 from "../pages//page18/Page18";
 
+import Page19 from "../pages/Page19/Page19";
+import Page20 from "../pages/page20/Page20";
+import Page21 from "../pages/page21/Page21";
+import Page22 from "../pages/page22/Page22";
+import Page23 from "../pages/page23/Page23";
+import Page24 from "../pages//page24/Page24";
 
-import './Flipbook.css';
-import  "turn.js";
+import Page25 from "../pages/Page25/Page25";
+import Page26 from "../pages/page26/Page26";
+import Page27 from "../pages/page27/Page27";
+import Page28 from "../pages/page28/Page28";
+import Page29 from "../pages/page29/Page29";
+import Page30 from "../pages//page30/Page30";
+
+import Page31 from "../pages//page31/Page31";
+import Page32 from "../pages//page32/Page32";
+import Page33 from "../pages//page33/Page33";
+import Page34 from "../pages//page34/Page34";
+import Page35 from "../pages//page35/Page35";
+
+import styles from './Flipbook.module.css';
+import "turn.js";
 
 
 
@@ -53,7 +73,6 @@ const Turn = ({ style = {}, className = "", options = {}, children }) => {
     if (event.keyCode === 39) {
       $(el).turn("next");
     }
-
   };
 
   return (
@@ -67,28 +86,12 @@ const Turn = ({ style = {}, className = "", options = {}, children }) => {
   );
 };
 
-// Function to calculate dynamic width based on screen size
-const calculateWidth = () => {
-    const screenWidth = window.innerWidth;
-console.log('ddddddddddddddddddddddd',screenWidth)
-    // Adjust these values based on your design requirements
-   if (screenWidth < 992) {
-        return 800; // Set the width for medium screens
-    } else {
-        return 1125; // Default width for larger screens
-    }
-};
-
-const dynamicWidth = calculateWidth();
-
-
 const options = {
-   width: dynamicWidth,
-
+   width: 1125,
   //  height: 700,
    height: 800,
   autoCenter: true,
-  display: 'single',
+  display: "double",
   acceleration: true,
   elevation: 50,
 
@@ -98,7 +101,6 @@ const options = {
   when: {
     turned: function (e, page) {
       console.log("Current view: ", $(this).turn("view"));
-      console.log("Current page number: ", page);
     },
   },
 };
@@ -107,16 +109,18 @@ const options = {
 const Flipbook = () => {
   return (
     <>
-    <div className="conteint p-5 d-flex justify-content-center align-items-center"    >
-    <Turn options={options} className="magazine " >
-         <Page1 />
+    <div className={`${styles.conteint}  p-5 d-flex justify-content-center align-items-center`}    >
+    <Turn options={options} className="magazine "  >
+    
+     <Page1 />
+          
      <Page2 />
       <Page3 />
       <Page4 />
       <Page5 />
       <Page6 />
       <Page7 />
-      <Page8/>
+      {/* <Page8/> */}
       <Page9 />
       <Page10 />
       <Page11/>
@@ -126,7 +130,23 @@ const Flipbook = () => {
       <Page15 />
       <Page16 />
       <Page17 />
-      
+      <Page18 />
+      <Page19 />
+      <Page20 />
+      <Page21 />
+      <Page22 />
+      <Page23 />
+      <Page24 />
+      <Page25 />
+      <Page26 />
+      <Page27 />
+      <Page28 />
+      <Page29 />
+      <Page30 />
+      <Page31 />
+      <Page32 />
+    
+      <Page34 />
      
       
     </Turn>
