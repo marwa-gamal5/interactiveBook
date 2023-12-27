@@ -8,6 +8,7 @@ export const getData = () => (dispatch) => {
             payload: resolved.data.data
         }))
         .catch((err) => console.log("Error while fetching Data :", err))
+
 }
 
 

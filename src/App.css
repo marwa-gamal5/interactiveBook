@@ -18,6 +18,6 @@
  
 }
 body {
-
+  font-size: clamp(0.9rem, 1.5vw, 1rem);
   background-color: #e3d5d5;
 }
